@@ -6,8 +6,9 @@ class SendMail{
     constructor(){
          this.transporter = nodemailer.createTransport({
             host: config.smtp_host,
+            // secureConnection: false,
             port: config.smtp_port,
-            secure: true,
+            secure: false,
             auth: {
               user: config.nodeAppUser,
               pass: config.nodeAppPassword
