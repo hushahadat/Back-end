@@ -29,7 +29,7 @@ class Server {
 
        this.app.use(serve(process.cwd()))
        this.app.use(async (ctx, next) => {
-           ctx.set('Access-Control-Allow-Origin','http://localhost:3000' ||"");
+           ctx.set('Access-Control-Allow-Origin','http://localhost:3000' ||'http://hussain.co.in'|| 'http://www.hussain.co.in'|| '*');
            ctx.set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, x-parse-key, x-parse-id');
            ctx.set('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS');
            await next();
