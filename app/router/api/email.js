@@ -1,6 +1,7 @@
 
 
 const email = require("../../controllers/email.controller");
+const helper = require('../../helper/helper')
 
 
 
@@ -12,6 +13,7 @@ module.exports = {
    {
      method: "post",
      path: "/sendEmail",
+     middleware :helper.decryptBody,
      handler: email.sendEmail,
    }
  ]
