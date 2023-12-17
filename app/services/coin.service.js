@@ -1,3 +1,4 @@
+const fetch =  (url ,init) => import ("node-fetch").then((module) => module.default(url,init))
 class CoinService {
   constructor() {}
 
