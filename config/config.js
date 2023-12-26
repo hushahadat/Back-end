@@ -9,5 +9,6 @@ module.exports = {
     smtp_host : process.env.SMTP_HOST,
     smtp_port : process.env.SMTP_PORT,
     personalMail : process.env.PERSONALMAIL,
-    name : process.env.NAME
+    name : process.env.NAME,
+    db : process.env.DB
 }
