@@ -15,6 +15,12 @@ module.exports = {
      path: "/sendEmail",
      middleware :helper.decryptBody,
      handler: email.sendEmail,
-   }
+   },
+   {
+    method: "post",
+    path: "/getDaata",
+    // middleware :helper.decryptBody,
+    handler: email.getDaata,
+  }
  ]
 }

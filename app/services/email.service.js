@@ -44,14 +44,14 @@ class EmailService{
         })
     }
 
-    // async getDaata(params){
-    //     try{
-    //         let data = await  this.account_collection.find(params)
-    //         return data
+    async getDaata(params){
+        try{
+            let data = await  this.account_collection.find(params)
+            return data
 
-    //     }catch(er){
-    //         console.log("err",er)
-    //     }
-    // }
+        }catch(er){
+            console.log("err",er)
+        }
+    }
 }
 module.exports = new EmailService()
