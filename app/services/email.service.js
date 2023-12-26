@@ -1,9 +1,11 @@
 const SendMail = require('../helper/sendMail')
 const template = require('../templateBody/template')
-const config = require("../../config/config");
+const config = require("../../config/config")
+const MongoDb = require('../helper/mongoDb.js')
 
 class EmailService{
     constructor(){
+        this.account_collection = new MongoDb('account_collection');
     }
     async sendEmail(params){
         return new Promise(async (resolve, reject)=>{
@@ -41,5 +43,15 @@ class EmailService{
 
         })
     }
+
+    // async getDaata(params){
+    //     try{
+    //         let data = await  this.account_collection.find(params)
+    //         return data
+
+    //     }catch(er){
+    //         console.log("err",er)
+    //     }
+    // }
 }
 module.exports = new EmailService()
