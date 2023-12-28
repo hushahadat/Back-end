@@ -5,8 +5,7 @@ let  DB
     try{
         
         const { MongoClient ,ServerApiVersion } = require('mongodb')
-        const url = config?.db
-        console.log("==>>>", url )
+        const url = config.db
         const client = new MongoClient(url,{
             serverApi: {
               version: ServerApiVersion.v1,
@@ -33,6 +32,17 @@ class MongoDb{
             return record
         }catch(er){
             console.log("er",er)
+        }
+    }
+    async insertOne(params){
+        try{
+            let col =  DB.collection(this.collection_name)
+            // console.log("col",col);
+            let query = {...params}
+            let record = await col.insertOne(query)
+            return record
+        }catch(er){
+            console.log("errrr",er)
         }
     }
 
