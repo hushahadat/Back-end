@@ -32,6 +32,7 @@ class EmailService{
                     let userMail ={
                         to : params?.email,
                         name : params?.name,
+                        Date : new Date().toString()
                     }
                      temp = eval("`"+template?.userTemplate+ "`")
                     userMail['htmlBody'] = temp
