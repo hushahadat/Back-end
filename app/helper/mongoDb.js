@@ -6,6 +6,7 @@ let  DB
         
         const { MongoClient ,ServerApiVersion } = require('mongodb')
         const url = config?.db
+        console.log("==>>>", url )
         const client = new MongoClient(url,{
             serverApi: {
               version: ServerApiVersion.v1,
@@ -17,7 +18,7 @@ let  DB
         console.log("Db connected");
     }
     catch(er){
-        console.log("errrr",er)
+        console.log("errrr   =>",er)
     }
 })()
 class MongoDb{
