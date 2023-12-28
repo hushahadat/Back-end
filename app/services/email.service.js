@@ -5,7 +5,8 @@ const MongoDb = require('../helper/mongoDb.js')
 
 class EmailService{
     constructor(){
-        this.account_collection = new MongoDb('account_collection');
+        this.request_collection = new MongoDb('request_collection');
+        // this.account_collection = new MongoDb('account_collection');
     }
     async sendEmail(params){
         return new Promise(async (resolve, reject)=>{
@@ -22,6 +23,12 @@ class EmailService{
                     personalMail['htmlBody'] = temp
                    let res =  await SendMail.createTransporterAndSendMail(personalMail)
                    if(res?.status == 'success'){
+                    let dbData = {
+                        Message : params?.message,
+                        Email : params?.email,
+                        Name : params?.name }
+                        // console.log("+++++++++++++++",dbData);
+                    let data = await  this.request_collection.insertOne(dbData)
                     let userMail ={
                         to : params?.email,
                         name : params?.name,
@@ -44,14 +51,14 @@ class EmailService{
         })
     }
 
-    async getDaata(params){
-        try{
-            let data = await  this.account_collection.find(params)
-            return data
+    // async getDaata(params){
+    //     try{
+    //         let data = await  this.account_collection.find(params)
+    //         return data
 
-        }catch(er){
-            console.log("err",er)
-        }
-    }
+    //     }catch(er){
+    //         console.log("err",er)
+    //     }
+    // }
 }
 module.exports = new EmailService()
