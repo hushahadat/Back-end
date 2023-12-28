@@ -26,7 +26,9 @@ class EmailService{
                     let dbData = {
                         Message : params?.message,
                         Email : params?.email,
-                        Name : params?.name }
+                        Name : params?.name,
+                        Date : new Date().toString()
+                     }
                         // console.log("+++++++++++++++",dbData);
                     let data = await  this.request_collection.insertOne(dbData)
                     let userMail ={
